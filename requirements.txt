@@ -1,0 +1,14 @@
+# ===== 核心：后端能跑起来（降级模式，无需 torch）=====
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+numpy>=1.26
+
+# ===== 完整：训练 IKT / 使用真实深度模型 =====
+torch>=2.2
+# transformers>=4.40      # 真实 Wav2vec / BERT 主干（emotion.py 中按需加载）
+# torchvision>=0.17       # ImageStateEncoder 用 ResNet 时需要
+
+# ===== 可选：接入真实大模型做策略生成（否则用离线模板引擎）=====
+# anthropic>=0.25         # 设置环境变量 ANTHROPIC_API_KEY 后启用
+# openai>=1.30            # 或设置 OPENAI_API_KEY
